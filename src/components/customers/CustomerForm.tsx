@@ -13,10 +13,6 @@ export default function CustomerForm({ onSuccess, onError, onCancel, customer }:
     businessName: "",
     businessType: "",
     registrationType: "",
-    customerType: "",
-    modeOfPayment: "",
-    paymentReceived: false,
-    walletAmount: "",
   });
 
   useEffect(() => {
@@ -29,10 +25,6 @@ export default function CustomerForm({ onSuccess, onError, onCancel, customer }:
       businessName: customer.businessName || "",
       businessType: customer.businessType || "",
       registrationType: customer.registrationType || "",
-      customerType: customer.customerType || "",
-      modeOfPayment: customer.modeOfPayment || "",
-      paymentReceived: !!customer.paymentReceived,
-      walletAmount: customer.walletAmount != null ? String(customer.walletAmount) : "",
     });
   }, [customer]);
 
@@ -66,10 +58,6 @@ export default function CustomerForm({ onSuccess, onError, onCancel, customer }:
         "businessName": form.businessName || undefined,
         "businessType": form.businessType || undefined,
         "registrationType": form.registrationType || undefined,
-        "customerType": form.customerType || undefined,
-        "modeOfPayment": form.modeOfPayment || undefined,
-        "paymentReceived": !!form.paymentReceived,
-        "walletAmount": form.walletAmount === "" ? undefined : Number(form.walletAmount),
       };
 
       if (!customer) {
@@ -137,44 +125,7 @@ export default function CustomerForm({ onSuccess, onError, onCancel, customer }:
           <Input value={form.registrationType} onChange={(e) => update("registrationType", e.target.value)} />
         </div>
 
-        <div>
-          <label className="text-sm text-slate-500">Customer Type</label>
-          <select value={form.customerType} onChange={(e) => update("customerType", e.target.value)} className="h-11 w-full rounded-lg border border-slate-200 px-3 text-sm">
-            <option value="">Select</option>
-            <option value="DIRECT">Direct</option>
-            <option value="CHANNEL_PARTNER">Channel Partner Onboarded</option>
-          </select>
-        </div>
 
-        <div>
-          <label className="text-sm text-slate-500">Mode of Payment</label>
-          <select value={form.modeOfPayment} onChange={(e) => update("modeOfPayment", e.target.value)} className="h-11 w-full rounded-lg border border-slate-200 px-3 text-sm">
-            <option value="">Select</option>
-            <option value="PREPAID">Prepaid</option>
-            <option value="POSTPAID">Postpaid</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="text-sm text-slate-500">Payment received</label>
-          <div className="flex items-center gap-4 mt-2">
-            <label className="inline-flex items-center gap-2">
-              <input type="radio" name="paymentReceived" checked={form.paymentReceived === true} onChange={() => update("paymentReceived", true)} />
-              <span className="text-sm">Yes</span>
-            </label>
-            <label className="inline-flex items-center gap-2">
-              <input type="radio" name="paymentReceived" checked={form.paymentReceived === false} onChange={() => update("paymentReceived", false)} />
-              <span className="text-sm">No</span>
-            </label>
-          </div>
-        </div>
-
-        {form.paymentReceived && (
-          <div>
-            <label className="text-sm text-slate-500">Wallet token</label>
-            <Input value={form.walletAmount} onChange={(e) => update("walletAmount", e.target.value)} />
-          </div>
-        )}
 
         <div className="flex justify-end gap-2">
           <button type="button" onClick={() => onCancel?.()} className="inline-flex h-9 items-center justify-center rounded-full border border-slate-300 px-4 text-sm text-slate-700 hover:bg-slate-50">Cancel</button>

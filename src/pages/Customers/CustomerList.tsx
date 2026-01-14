@@ -104,7 +104,7 @@ export default function CustomerList() {
   };
 
   const downloadSampleCsv = () => {
-    const sample = "firstName,lastName,email,mobile,businessName,customerType,modeOfPayment,paymentReceived,walletAmount";
+    const sample = "firstName,lastName,email,mobile,businessName";
     const blob = new Blob([sample], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -183,27 +183,19 @@ export default function CustomerList() {
                 <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Email</th>
                 <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Mobile</th>
                 <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Business</th>
-                <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Customer Type</th>
-                <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Mode of Payment</th>
-                <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Payment Received</th>
-                <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Wallet token</th>
                 <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Status</th>
                 <th className="text-sm font-medium text-slate-900 dark:text-slate-50">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {isLoading && (<tr><td colSpan={10}>Loading...</td></tr>)}
-              {!isLoading && customers.length === 0 && (<tr><td colSpan={10}>No customers</td></tr>)}
+              {isLoading && (<tr><td colSpan={6}>Loading...</td></tr>)}
+              {!isLoading && customers.length === 0 && (<tr><td colSpan={6}>No customers</td></tr>)}
               {customers.map((m: any) => (
                 <tr key={m.id} className="border-t">
                   <td className="py-3 text-sm text-slate-800 dark:text-slate-100"><Link to={`/customers/${m.id}`} className="text-brand-500 hover:underline">{m.firstName} {m.lastName}</Link></td>
                   <td className="text-sm text-slate-700 dark:text-slate-200">{m.email}</td>
                   <td className="text-sm text-slate-700 dark:text-slate-200">{m.mobile}</td>
                   <td className="text-sm text-slate-700 dark:text-slate-200">{m.businessName}</td>
-                  <td className="text-sm text-slate-700 dark:text-slate-200">{m.customerType ? (m.customerType === 'DIRECT' ? 'Direct' : 'Channel Partner') : '-'}</td>
-                  <td className="text-sm text-slate-700 dark:text-slate-200">{m.modeOfPayment ? (m.modeOfPayment.toString().toUpperCase() === 'PREPAID' ? 'Prepaid' : 'Postpaid') : '-'}</td>
-                  <td className="text-sm text-slate-700 dark:text-slate-200">{m.paymentReceived ? "Yes" : "No"}</td>
-                  <td className="text-sm text-slate-700 dark:text-slate-200">{m.walletAmount != null ? m.walletAmount : '-'}</td>
                   <td className="text-sm">
                     <button
                       type="button"
