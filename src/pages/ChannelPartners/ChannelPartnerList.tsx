@@ -115,6 +115,7 @@ export default function ChannelPartnerList() {
     URL.revokeObjectURL(url);
   };
 
+
   return (
     <div className="space-y-6">
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">

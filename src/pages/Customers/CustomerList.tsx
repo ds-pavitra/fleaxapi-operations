@@ -76,21 +76,14 @@ export default function CustomerList() {
     }
   }, [editingCustomerError]);
 
-  const [importedRows, setImportedRows] = useState<any[]>([]);
+  const importedRows: any[] = [];
 
-  const parseCsv = (text: string) => {
-    const lines = text.split(/\r?\n/).filter(Boolean);
-    if (lines.length === 0) return [];
-    const headers = lines[0].split(",").map((h) => h.trim());
-    const rows = lines.slice(1).map((ln) => {
-      const cols = ln.split(",").map((c) => c.trim());
-      const obj: any = {};
-      headers.forEach((h, i) => { obj[h] = cols[i] === undefined ? "" : cols[i]; });
-      return obj;
-    });
-    return rows;
-  };
+  // CSV import functionality is currently disabled in the UI; helper functions
+  // were removed to avoid unused-variable TypeScript errors. Re-enable helpers
+  // here later if the import UI is restored.
 
+<<<<<<< HEAD
+=======
   const handleCsvUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
@@ -113,6 +106,7 @@ export default function CustomerList() {
     a.click();
     URL.revokeObjectURL(url);
   };
+>>>>>>> 9ae10858bbe3a9213d0386aabaf228d6b888cc65
 
   return (
     <div className="space-y-6">
