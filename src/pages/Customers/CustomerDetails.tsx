@@ -44,22 +44,10 @@ export default function CustomerDetails() {
             <div className="text-sm text-slate-500">Business name</div>
             <div className="text-sm text-slate-700">{customer.businessName}</div>
 
-            <div className="text-sm text-slate-500">Customer type</div>
-            <div className="text-sm text-slate-700">{customer.customerType ? (customer.customerType === 'DIRECT' ? 'Direct' : 'Channel Partner') : '-'}</div>
-
-            <div className="text-sm text-slate-500">Mode of payment</div>
-            <div className="text-sm text-slate-700">{customer.modeOfPayment ? (customer.modeOfPayment.toString().toUpperCase() === 'PREPAID' ? 'Prepaid' : 'Postpaid') : '-'}</div>
-
           </div>
 
           <div className="space-y-2">
             <div>
-              <div className="text-sm text-slate-500">Wallet balance</div>
-              <div className="text-sm text-slate-700">{customer.walletAmount != null ? customer.walletAmount : '-'}</div>
-
-              <div className="text-sm text-slate-500">Payment received</div>
-              <div className="text-sm text-slate-700">{customer.paymentReceived ? "Yes" : "No"}</div>
-
               <div className="text-sm text-slate-500">Status</div>
               <div className="text-sm text-slate-700">{customer.status}</div>
             </div>

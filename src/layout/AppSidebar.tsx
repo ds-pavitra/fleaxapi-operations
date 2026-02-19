@@ -38,11 +38,11 @@ const navItems: NavItem[] = [
     name: "Dashboard",
     path: "/home",
   },
-  // {
-  //   icon: <ManageApiKey />,
-  //   name: "Manage Api Keys",
-  //   path: "/manage-api-keys",
-  // },
+  {
+    icon: <ManageApiKey />,
+    name: "Manage Api Keys",
+    path: "/manage-api-keys",
+  },
   // {
   //   icon: <UserCircleIcon />,
   //   name: "User Management",
@@ -53,11 +53,11 @@ const navItems: NavItem[] = [
     name: "Customer Management",
     path: "/customers",
   },
-  {
-    icon: <UserCircleIcon />,
-    name: "Vendor Management",
-    path: "/vendors",
-  },
+  // {
+  //   icon: <UserCircleIcon />,
+  //   name: "Vendor Management",
+  //   path: "/vendors",
+  // },
   // {
   //   icon: <ManageApiKey />,
   //   name: "API Management",
@@ -67,16 +67,16 @@ const navItems: NavItem[] = [
   //     { name: "Manage API Keys", path: "/manage-api-keys" },
   //   ],
   // },
-  {
-    icon: <ManageApiKey />,
-    name: "Channel Partners",
-    path: "/channel-partners",
-  },
   // {
   //   icon: <ManageApiKey />,
-  //   name: "Batch Processing",
-  //   path: "/batch-processing",
+  //   name: "Channel Partners",
+  //   path: "/channel-partners",
   // },
+  {
+    icon: <ManageApiKey />,
+    name: "Batch Processing",
+    path: "/batch-processing",
+  },
   {
     icon: <Reports />,
     name: "Reports",
