@@ -129,9 +129,9 @@ export default function CustomerList() {
           </div>
 
           <div className="flex gap-2 items-center">
-            {/* <input id="customer-csv-input" type="file" accept="text/csv" onChange={(e) => handleCsvUpload(e)} className="hidden" />
+            <input id="customer-csv-input" type="file" accept="text/csv" onChange={(e) => handleCsvUpload(e)} className="hidden" />
             <button onClick={() => document.getElementById('customer-csv-input')?.click()} className="inline-flex h-9 items-center justify-center rounded-full border border-slate-300 px-3 text-xs">Import CSV</button>
-            <button onClick={downloadSampleCsv} className="inline-flex h-9 items-center justify-center rounded-full border border-slate-300 px-3 text-xs">Sample CSV</button> */}
+            <button onClick={downloadSampleCsv} className="inline-flex h-9 items-center justify-center rounded-full border border-slate-300 px-3 text-xs">Sample CSV</button>
 
             <label className="text-sm">Rows</label>
             <select
