@@ -76,43 +76,12 @@ export default function CustomerList() {
     }
   }, [editingCustomerError]);
 
-  const [importedRows, setImportedRows] = useState<any[]>([]);
+  const importedRows: any[] = [];
 
-  const parseCsv = (text: string) => {
-    const lines = text.split(/\r?\n/).filter(Boolean);
-    if (lines.length === 0) return [];
-    const headers = lines[0].split(",").map((h) => h.trim());
-    const rows = lines.slice(1).map((ln) => {
-      const cols = ln.split(",").map((c) => c.trim());
-      const obj: any = {};
-      headers.forEach((h, i) => { obj[h] = cols[i] === undefined ? "" : cols[i]; });
-      return obj;
-    });
-    return rows;
-  };
+  // CSV import functionality is currently disabled in the UI; helper functions
+  // were removed to avoid unused-variable TypeScript errors. Re-enable helpers
+  // here later if the import UI is restored.
 
-  const handleCsvUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const text = String(ev.target?.result || "");
-      const rows = parseCsv(text);
-      setImportedRows(rows);
-    };
-    reader.readAsText(file);
-  };
-
-  const downloadSampleCsv = () => {
-    const sample = "firstName,lastName,email,mobile,businessName,customerType,modeOfPayment,paymentReceived,walletAmount";
-    const blob = new Blob([sample], { type: "text/csv" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "customers-sample.csv";
-    a.click();
-    URL.revokeObjectURL(url);
-  };
 
   return (
     <div className="space-y-6">

@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from "react";
-import { useListMerchantsQuery, useGetMerchantQuery, useUpdateMerchantMutation } from "../../features/merchants/merchantsApi";
+import { useListMerchantsQuery, useGetMerchantQuery } from "../../features/merchants/merchantsApi";
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../../components/ui/modal";
 import MerchantForm from "../../components/merchants/MerchantForm";
@@ -17,9 +17,6 @@ export default function MerchantList() {
   const [status, setStatus] = useState<string | undefined>(undefined);
 
   const { data, isLoading } = useListMerchantsQuery({ page, pageSize, search, status });
-  const [deleteMerchant] = useDeleteMerchantMutation();
-  const [updateMerchant] = useUpdateMerchantMutation();
-  const [updatingId, setUpdatingId] = useState<string | null>(null);
 
   const { isOpen, openModal, closeModal } = useModal();
   const [editingMerchantId, setEditingMerchantId] = useState<string | null>(null);

@@ -115,6 +115,7 @@ export default function ChannelPartnerList() {
     URL.revokeObjectURL(url);
   };
 
+
   return (
     <div className="space-y-6">
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
@@ -130,9 +131,9 @@ export default function ChannelPartnerList() {
           </div>
 
           <div className="flex gap-2 items-center">
-            {/* <input id="partner-csv-input" type="file" accept="text/csv" onChange={(e) => handleCsvUpload(e)} className="hidden" />
+            <input id="partner-csv-input" type="file" accept="text/csv" onChange={(e) => handleCsvUpload(e)} className="hidden" />
             <button onClick={() => document.getElementById('partner-csv-input')?.click()} className="inline-flex h-9 items-center justify-center rounded-full border border-slate-300 px-3 text-xs">Import CSV</button>
-            <button onClick={downloadSampleCsv} className="inline-flex h-9 items-center justify-center rounded-full border border-slate-300 px-3 text-xs">Sample CSV</button> */}
+            <button onClick={downloadSampleCsv} className="inline-flex h-9 items-center justify-center rounded-full border border-slate-300 px-3 text-xs">Sample CSV</button>
 
             <label className="text-sm">Rows</label>
             <select
